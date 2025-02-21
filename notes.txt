@@ -1,0 +1,12 @@
+# commonly used mongodb commands
+mongosh in MacOS
+show dbs
+use database_name
+show collections
+db.collection_name.find()
+db.collection_name.drop()
+
+pip install -r requirements.txt
+
+# to get the firebase serivceAccountKey file:
+go to project settings => service accounts => generate new private key => download the key

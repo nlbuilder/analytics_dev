@@ -1,0 +1,16 @@
+{
+    "config": {
+        "number_of_businesses": 1,
+        "min_number_of_staffs": 1,
+        "max_number_of_staffs": 2,
+        "min_number_of_services": 1,
+        "max_number_of_services": 5,
+        "number_of_customers": 5,
+        "min_number_of_appointments": 1,
+        "max_number_of_appointments": 10,
+        "min_number_of_staff_work_timesheets": 1,
+        "max_number_of_staff_work_timesheets": 5,
+        "min_number_of_loyalty_cards": 1,
+        "max_number_of_loyalty_cards": 2
+    }
+}
