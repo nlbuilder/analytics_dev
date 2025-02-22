@@ -8,7 +8,7 @@ script_path = os.path.dirname(os.path.abspath(__file__))
 parent_path = os.path.dirname(script_path)
 sys.path.append(parent_path)
 
-from mongodb.mongodbClient import client
+from mongodbConnect.mongodbClient import client
 
 from utils import (
     SimulateWorkTimeSheet,
@@ -65,11 +65,11 @@ for business_id, business_staff_id in zip(
 
 
 # connect and insert data into Staff_work_timesheet_DB/daily_staff_work_timesheet
-from src.mongodb.mongodbClient import client
+from src.mongodbConnect.mongodbClient import client
 
 load_dotenv()
 database = os.getenv("STAFF_WORK_TIMESHEET_DATABASE")
-staff_work_timesheet_collection = os.getenv("STAFF_WORK_TIMESHEET_COLLECTION")
+staff_work_timesheet_collection = os.getenv("DAILY_STAFF_WORK_TIMESHEET_COLLECTION")
 
 # insert the generated businesses into the database
 insert_data_to_mongodb(

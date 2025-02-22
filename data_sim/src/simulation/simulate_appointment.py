@@ -8,7 +8,7 @@ parent_path = os.path.dirname(script_path)
 sys.path.append(parent_path)
 
 
-from mongodb.mongodbClient import client
+from mongodbConnect.mongodbClient import client
 
 from utils import (
     SimulateAppointment,
@@ -67,10 +67,10 @@ for business_id in business_ids:
     # filter services specific to the current business_id
     business_service_options = [
         (service_id, service_name)
-        for service_id, service_name, business_service_id in zip(
+        for service_id, service_name, business_id in zip(
             service_ids, service_names, business_ids
         )
-        if business_service_id == business_id
+        if business_id == business_id
     ]
 
     for _ in range(number_of_appointments):

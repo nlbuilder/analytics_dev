@@ -9,7 +9,7 @@ parent_path = os.path.dirname(script_path)
 sys.path.append(parent_path)
 
 
-from mongodb.mongodbClient import client
+from mongodbConnect.mongodbClient import client
 
 from utils import (
     SimulateService,
@@ -27,7 +27,7 @@ config_data = read_data_from_json(path_to_read_json=path_to_read_config_json)
 services = []
 service_preset = True  # True
 # select a preset for services
-selected_preset = "preset_service_for_nailsalon"
+selected_preset = "preset_service_for_auto_repair"
 
 
 # set things up for using preset services
@@ -47,7 +47,7 @@ simulate_service = SimulateService()
 
 
 load_dotenv()
-database = os.getenv("BUSINESS_DATABASE")
+database = os.getenv("BUSINESS_SERVICE_DATABASE")
 business_servive_collection = os.getenv("BUSINESS_SERVICE_INFO_COLLECTION")
 
 

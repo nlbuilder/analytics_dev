@@ -10,7 +10,7 @@ parent_path = os.path.dirname(script_path)
 sys.path.append(parent_path)
 
 
-from mongodb.mongodbClient import client
+from mongodbConnect.mongodbClient import client
 
 from utils import (
     SimulateLoyaltyCard,
@@ -61,7 +61,7 @@ for business_id in business_ids:
 
 
 # connect and insert data into Loyalty_program_DB/loyalty_card
-from src.mongodb.mongodbClient import client
+from src.mongodbConnect.mongodbClient import client
 
 
 load_dotenv()

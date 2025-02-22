@@ -1,16 +1,53 @@
 {
     "config": {
-        "number_of_businesses": 1,
-        "min_number_of_staffs": 1,
-        "max_number_of_staffs": 2,
+        "number_of_businesses": 2,
+        "min_number_of_staffs": 5,
+        "max_number_of_staffs": 10,
         "min_number_of_services": 1,
         "max_number_of_services": 5,
         "number_of_customers": 5,
         "min_number_of_appointments": 1,
-        "max_number_of_appointments": 10,
+        "max_number_of_appointments": 20,
         "min_number_of_staff_work_timesheets": 1,
         "max_number_of_staff_work_timesheets": 5,
         "min_number_of_loyalty_cards": 1,
         "max_number_of_loyalty_cards": 2
-    }
+    },
+    "preset_service_for_auto_repair": [
+        {
+            "oil change": 50,
+            "tire rotation": 40,
+            "brake pad replacement": 150,
+            "battery replacement": 200,
+            "engine diagnostics": 100,
+            "transmission service": 250,
+            "wheel alignment": 120,
+            "air filter replacement": 30,
+            "coolant flush": 80,
+            "spark plug replacement": 90,
+            "AC service": 160,
+            "suspension repair": 300,
+            "exhaust system repair": 180,
+            "timing belt replacement": 400,
+            "headlight restoration": 80,
+            "car detailing": 150,
+            "windshield replacement": 250,
+            "fuel system cleaning": 110,
+            "starter replacement": 220,
+            "alternator replacement": 250
+        }
+    ],
+    "preset_service_for_nailsalon": [
+        {
+            "nail manicure": 10,
+            "spa pedicure": 10,
+            "gel fill": 10,
+            "acrylic fill": 10,
+            "full set": 10,
+            "color change": 10,
+            "paraffin wax": 10,
+            "regular combo": 10,
+            "shellac combo": 10
+        }
+    ]
 }

@@ -1,4 +1,5 @@
 import json
+import random
 import sys, os, csv
 from faker import Faker
 from datetime import datetime, timedelta
@@ -21,7 +22,7 @@ from exception import CustomException
 
 # initialize firebase app
 cred = credentials.Certificate(
-    os.path.join(parent_path, "firebase/serviceAccountKey.json")
+    os.path.join(parent_path, "firebaseConfig/serviceAccountKey.json")
 )
 firebase_admin.initialize_app(cred)
 
@@ -45,7 +46,7 @@ class SimulateBusiness:
                 "country": self.fake.country(),
                 "phone_number": self.fake.phone_number(),
                 "email": self.fake.email(),
-                "password": self.fake.password(),
+                "password": self.fake.password(),  # generate a random password to sign up with firebase
                 "logo_url": self.fake.image_url(),
                 "description": self.fake.bs(),
                 "manager_name": self.fake.name(),
@@ -99,7 +100,7 @@ class SimulateStaff:
                 "country": self.fake.country(),
                 "phone_number": self.fake.phone_number(),
                 "email": self.fake.email(),
-                "password": self.fake.password(),
+                "password": self.fake.password(),  # generate a random password to sign up with firebase
                 "profile_picture_url": self.fake.image_url(),
                 "role": "staff",
             }
@@ -185,9 +186,9 @@ class SimulateService:
                 "service_id": self.fake.uuid4(),
                 "service_name": service_name,
                 "photo_url": self.fake.image_url(),
-                "description": self.fake.bs(),
+                "description": "super cool service",
                 "price": service_price,
-                "notes": self.fake.catch_phrase(),
+                "notes": "how cool is this service",
             }
 
             return business_service
@@ -215,21 +216,49 @@ class SimulateAppointment:
     ):
         try:
 
+            # simulate a date using the faker library
             date = self.fake.date_this_year()
             date_formatted = date.strftime("%Y-%m-%d")
 
-            # round the time to the nearest 5 minutes
-            random_time = self.fake.time()
-            time_obj = datetime.strptime(random_time, "%H:%M:%S")
-            rounded_minute = round(time_obj.minute / 5) * 5
+            # simulate a random time between 9 AM and 6 PM
+            start_time = datetime.strptime("09:00:00", "%H:%M:%S")
+            end_time = datetime.strptime("18:00:00", "%H:%M:%S")
 
-            # if rounding produces 60 minutes, increment the hour and set minute to 0
+            # Generate a random number of seconds between 9 AM and 6 PM
+            random_seconds = random.randint(
+                0, int((end_time - start_time).total_seconds())
+            )
+
+            # Add random seconds to the start time
+            random_time = start_time + timedelta(seconds=random_seconds)
+
+            # Round the time to the nearest 5 minutes
+            rounded_minute = round(random_time.minute / 5) * 5
+
+            # If rounding produces 60 minutes, increment the hour and set minute to 0
             if rounded_minute == 60:
-                time_obj = time_obj + timedelta(hours=1)
+                random_time = random_time + timedelta(hours=1)
                 rounded_minute = 0
 
-            time_obj = time_obj.replace(minute=rounded_minute, second=0)
-            time_formatted = time_obj.strftime("%H:%M:%S")
+            # Set the new time with rounded minutes
+            random_time = random_time.replace(minute=rounded_minute, second=0)
+
+            time_formatted = random_time.strftime("%H:%M:%S")
+
+            # # simulate a random time using the faker library, no constrait
+            # random_time = self.fake.time()
+
+            # # round the time to the nearest 5 minutes
+            # time_obj = datetime.strptime(random_time, "%H:%M:%S")
+            # rounded_minute = round(time_obj.minute / 5) * 5
+
+            # # if rounding produces 60 minutes, increment the hour and set minute to 0
+            # if rounded_minute == 60:
+            #     time_obj = time_obj + timedelta(hours=1)
+            #     rounded_minute = 0
+
+            # time_obj = time_obj.replace(minute=rounded_minute, second=0)
+            # time_formatted = time_obj.strftime("%H:%M:%S")
 
             appointment = {
                 "appointment_id": f"{business_id}--{self.fake.uuid4()}",
@@ -247,7 +276,7 @@ class SimulateAppointment:
                 "status": self.fake.random_element(
                     elements=("waiting", "completed", "ongoing")
                 ),
-                "notes": self.fake.catch_phrase(),
+                "notes": "how awesome is this service and the staff, love it",
             }
 
             return appointment

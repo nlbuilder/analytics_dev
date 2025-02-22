@@ -35,7 +35,7 @@ for i in range(number_of_customers):
     customers.append(customer_data)
 
 # connect and insert data into Customer_DB/customer_info
-from src.mongodb.mongodbClient import client
+from src.mongodbConnect.mongodbClient import client
 
 
 load_dotenv()
