@@ -1,0 +1,14 @@
+# ignore .DS_Store
+.DS_Store
+
+# ignore __pycache__
+__pycache__
+
+# ignore firebaseConfig folder
+firebaseConfig/
+
+# ignore .env
+.env
+
+# ignore venv folder
+venv/
