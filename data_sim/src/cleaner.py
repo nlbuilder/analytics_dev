@@ -95,17 +95,17 @@ for user in auth.list_users().iterate_all():
 auth.delete_users(users_uid)
 
 # delete csv files
-path_to_business_csv = os.path.join(
-    script_path, "simulation", "data", "business_info.csv"
-)
-path_to_business_staff_csv = os.path.join(
-    script_path, "simulation", "data", "business_staff_info.csv"
-)
-path_to_save_customer_csv = os.path.join(
-    script_path, "simulation", "data", "customer_info.csv"
-)
+# path_to_business_csv = os.path.join(
+#     script_path, "simulation", "data", "business_info.csv"
+# )
+# path_to_business_staff_csv = os.path.join(
+#     script_path, "simulation", "data", "business_staff_info.csv"
+# )
+# path_to_save_customer_csv = os.path.join(
+#     script_path, "simulation", "data", "customer_info.csv"
+# )
 
 
-os.remove(path_to_business_csv)
-os.remove(path_to_business_staff_csv)
-os.remove(path_to_save_customer_csv)
+# os.remove(path_to_business_csv)
+# os.remove(path_to_business_staff_csv)
+# os.remove(path_to_save_customer_csv)

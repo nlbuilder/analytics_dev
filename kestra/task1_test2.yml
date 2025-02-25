@@ -1,0 +1,22 @@
+id: analytics_test
+namespace: hoangngbot
+
+tasks:
+    - id: run_main_file
+      type: io.kestra.plugin.scripts.shell.Commands
+
+      taskRunner:
+          type: io.kestra.plugin.scripts.runner.docker.Docker
+
+      namespaceFiles:
+          enabled: true
+
+      containerImage: hoangngbot/test_kestra_data_sim:v1
+
+      commands:
+          - python ./data_sim/src/simulation/main.py
+
+triggers:
+    - id: schedule
+      type: io.kestra.plugin.core.trigger.Schedule
+      cron: "*/5 * * * *"
