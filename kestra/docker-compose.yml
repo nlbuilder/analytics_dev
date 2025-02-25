@@ -11,8 +11,8 @@ services:
             - postgres-data:/var/lib/postgresql/data
         environment:
             POSTGRES_DB: kestra
-            POSTGRES_USER: kestra
-            POSTGRES_PASSWORD: k3str4
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: admin
         healthcheck:
             test:
                 [
