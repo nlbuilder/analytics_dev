@@ -104,8 +104,8 @@ auth.delete_users(users_uid)
 # path_to_save_customer_csv = os.path.join(
 #     script_path, "simulation", "data", "customer_info.csv"
 # )
-
-
 # os.remove(path_to_business_csv)
 # os.remove(path_to_business_staff_csv)
 # os.remove(path_to_save_customer_csv)
+
+print("All collections and users have been deleted successfully")
